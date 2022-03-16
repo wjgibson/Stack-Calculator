@@ -6,10 +6,7 @@ class UnderflowException( Exception): pass
 
 class Stack:
     """
-    A simplistic Stack class
-    See CLRS3, 10.1
-
-    :ivar array: the array storing the values.
+    :var array: the array storing the values.
     :vartype array: list
     :ivar top: the index of the element that is currently at the top of the stack. 
     :vartype top: int
@@ -75,18 +72,12 @@ class Stack:
 def evaluate(expr):
     """ Evaluate an arithmetical expression.
 
-    Numerical operands can be positive or negative. A negative operand counts as a single token in the expression. For example: :math:`(-5)\\times 3` gives, in prefix notation: :math:`\\times\sqcup -5\\sqcup 3` (with visible spaces added for clarity) where the minus sign is not an operand.
-    
-    .. note:: The stack object is already created. You have to code the rest!
-
     :param expr: a list of numerical operands and operators, in prefix notation.
     :type expr: tuple
     :return: the numerical value of the expression
     :rtype: float or int
     """
     stack = Stack()
-
-    # continue...
     
     for item in reversed( expr ):
         if isinstance( item, ( int, float ) ):
@@ -118,10 +109,6 @@ def evaluate(expr):
                 stack.push( result )
 
     return stack.pop()
-    
-
-############ DO NOT MODIFY THE TEST CLASS! ######################
-
 
 class TestCalculator( unittest.TestCase ):
 
